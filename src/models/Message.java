@@ -20,6 +20,23 @@ import javax.persistence.Table;
 })
 @Table(name = "messages")
 public class Message {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "title", length = 255, nullable = false)
+    private String title;
+
+    @Column(name = "content", length = 255, nullable = false)
+    private String content;
+
+    @Column(name = "created_at", nullable = false)
+    private Timestamp created_at;
+
+    @Column(name = "updated_at", nullable = false)
+    private Timestamp updated_at;
+
     public Integer getId() {
         return id;
     }
@@ -44,26 +61,19 @@ public class Message {
         this.content = content;
     }
 
-    public Timestamp getCreate_at() {
-        return create_at;
+    public Timestamp getCreated_at() {
+        return created_at;
     }
 
-    public void setCreate_at(Timestamp create_at) {
-        this.create_at = create_at;
+    public void setCreated_at(Timestamp created_at) {
+        this.created_at = created_at;
     }
 
-    @Id
-    @Column(name = "Id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    public Timestamp getUpdated_at() {
+        return updated_at;
+    }
 
-    @Column(name = "title", length = 255, nullable = false)
-    private String title;
-
-    @Column(name = "content", length = 255, nullable = false)
-    private String content;
-
-    @Column(name ="created_at", nullable = false)
-    private Timestamp create_at;
-
+    public void setUpdated_at(Timestamp updated_at) {
+        this.updated_at = updated_at;
+    }
 }
